@@ -44,7 +44,7 @@ public class MemberController {
 MemberService를 찾을 수 없다 라는 오류가 뜬다.
 
 왜??<br/>
-*MemberService 가 스프링 빈으로 등록되어있지 않기 때문에*
+*MemberService 가 스프링 빈으로 등록되어있지 않기 때문에*  <br/><br/><br/>
 
 **MemberService.java**
 ```
@@ -84,7 +84,7 @@ public class MemberService {
 
 이것이 바로 `dependecy injection (의존성 주입)` 이다. <br/>
 
-의존 관계를 주입해주는 것 (스프링이 넣어준다.)<br/>
+의존 관계를 주입해주는 것 (스프링이 넣어준다.)<br/><br/>
 
 이것이 _스프링 빈을 등록하는 2가지 방법_ 중 
 - 컴포넌트 스캔과 자동 의존관계 설정 이다.
@@ -97,7 +97,7 @@ public class MemberService {
 예시 한개 만 보면 
 
 @Controller 어노테이션 안에 보면
-![image](https://user-images.githubusercontent.com/66653324/103365554-ad55d280-4b03-11eb-8fa1-987a7c209066.png)
+![image](https://user-images.githubusercontent.com/66653324/103365554-ad55d280-4b03-11eb-8fa1-987a7c209066.png)<br/><br/>
 @Componet 어노테이션이 있다.
 
 그래서 스프링이 실행되면 컴포넌트 스캔을 통해 의존성 주입이 가능한 것이다.
