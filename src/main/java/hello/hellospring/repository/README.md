@@ -239,7 +239,53 @@ public class JdbcMemberRepository implements MemberRepository {
 ```
 
 
+#### 스프링 변경 설정
 
+이제 스프링 변경 설정을 해야한다.
+`SpringConfig.java`
+
+```java
+package hello.hellospring;
+import hello.hellospring.repository.JdbcMemberRepository;
+import hello.hellospring.repository.JdbcTemplateMemberRepository;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.service.MemberService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import javax.sql.DataSource;
+
+
+@Configuration
+public class SpringConfig {
+ private final DataSource dataSource;
+ public SpringConfig(DataSource dataSource) {
+ this.dataSource = dataSource;
+ }
+ 
+ 
+ @Bean
+ public MemberService memberService() {
+ return new MemberService(memberRepository());
+ }
+ 
+ 
+ 
+ @Bean
+ public MemberRepository memberRepository() {
+// return new MemoryMemberRepository();
+return new JJdbcMemberRepository(dataSource);
+ }
+}
+```
+- DataSource는 데이터베이스 커넥션을 획득할 때 사용하는 객체다. 스프링 부트는 데이터베이스 커넥션
+정보를 바탕으로 DataSource를 생성하고 스프링 빈으로 만들어둔다. 그래서 DI를 받을 수 있다.
+
+<br/>
+스프링 변경 설정 한 뒤의 모습을 이미지로 보면!
+
+![image](https://user-images.githubusercontent.com/66653324/104412173-197a1100-55af-11eb-9aaf-588e2d238527.png)
+![image](https://user-images.githubusercontent.com/66653324/104412222-2eef3b00-55af-11eb-88d3-f0a17e4a4284.png)
 
 ### jdbc template
 
