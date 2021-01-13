@@ -6,15 +6,20 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@Transactional
 class MemberServiceTest {
 
-    MemberService memberService ;
-    MemoryMemberRepository memberRepository ;
+    @Autowired  MemberService memberService ;
+    @Autowired  MemoryMemberRepository memberRepository ;
 
     @BeforeEach
     public void beforeEach(){
@@ -44,7 +49,7 @@ class MemberServiceTest {
     }
 
     @Test
-    public void 중복회원_에외(){
+    public void 중복회원_에외() throws Exception{
 
         //given
         Member member1 = new Member();
@@ -56,8 +61,12 @@ class MemberServiceTest {
         //when
         memberService.join(member1);
 
-        org.junit.jupiter.api.Assertions.assertThrows(IllegalStateException.class,
+
+
+        IllegalStateException e = org.junit.jupiter.api.Assertions.assertThrows(IllegalStateException.class,
                 ()-> memberService.join(member2));
+
+        Assertions.assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다");
 
 //        try{
 //            memberService.join(member2);

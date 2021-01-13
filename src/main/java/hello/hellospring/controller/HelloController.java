@@ -11,13 +11,13 @@ public class HelloController {
 
     @GetMapping("hello")
     public String hello(Model model){
-        model.addAttribute("data","나는 성공한다.");
+        model.addAttribute("data","hello");
 
         return "hello";
     }
 
     @GetMapping("hello-mvc")
-    public String helloMvc(@RequestParam("name") String name , Model model){
+    public String helloMvc(@RequestParam("NAME") String name , Model model){
 
          model.addAttribute("name", name);
 
@@ -28,7 +28,7 @@ public class HelloController {
     @ResponseBody
     public String helloString(@RequestParam("name") String name){
 
-        return name;
+        return "hello " + name;
     }
 
     @GetMapping("hello-api")
