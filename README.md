@@ -174,7 +174,13 @@ public class SpringConfig {
 `주의` : *@Autowired* 를 통한 DI는 *helloController* , *MemberService* 등과 같이 스프링이 관리하는 객체에서만 동작한다. 스프링 빈으로 등록하지 않고
 내가 직접 생성한 객체에서는 동작하지 않는다.
 
+---------------------------------------------
+
 ## 회원관리 : 등록 & 조회
 
 - [회원관리](https://github.com/gunny6026/SpringBoot-Basic/tree/master/src/main/java/hello/hellospring/controller)
 - [DB접근 기술](https://github.com/gunny6026/SpringBoot-Basic/tree/master/src/main/java/hello/hellospring/repository)
+
+
+## AOP
+- [AOP](https://github.com/gunny6026/SpringBoot-Basic/tree/master/src/main/java/hello/hellospring/service)
