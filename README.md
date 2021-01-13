@@ -177,3 +177,4 @@ public class SpringConfig {
 ## 회원관리 : 등록 & 조회
 
 - [회원관리](https://github.com/gunny6026/SpringBoot-Basic/tree/master/src/main/java/hello/hellospring/controller)
+- [DB접근 기술](https://github.com/gunny6026/SpringBoot-Basic/tree/master/src/main/java/hello/hellospring/repository)
