@@ -1,3 +1,5 @@
+## 컴포넌트 스캔과 자동 의존관계 설정
+
 **MemberController.java**
 ```java
 @Controller
@@ -57,7 +59,10 @@ public class MemberService {
     }
 
 ```
-그냥 일반적인 평범한 java 클래스이다.
+그냥 일반적인 평범한 java 클래스이다. <br/>
+
+![image](https://user-images.githubusercontent.com/66653324/104458307-8a8ce900-55ee-11eb-9ad1-4cca11911c9d.png)
+
 
 @Autowired을 사용하여 두 클래스를 연결하려면
 빈으로 등록하기 위한 어노테이션이 필요하다.<br/>
@@ -99,4 +104,12 @@ public class MemberService {
 @Componet 어노테이션이 있다.
 
 그래서 스프링이 실행되면 컴포넌트 스캔을 통해 의존성 주입이 가능한 것이다.
+
+<br/>
+그림으로 보면
+
+
+![image](https://user-images.githubusercontent.com/66653324/104458474-cb84fd80-55ee-11eb-8a57-5cd5c17a0cce.png)
+
+![image](https://user-images.githubusercontent.com/66653324/104458573-e7889f00-55ee-11eb-8b0f-acc7abe53289.png)
 
